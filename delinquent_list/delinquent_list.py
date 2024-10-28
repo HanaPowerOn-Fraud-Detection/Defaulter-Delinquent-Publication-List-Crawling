@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 
-# url = "https://www.nts.go.kr/nts/ad/openInfo/selectList.do"
+# url = "https://www.nts.go.kr/nts/ad/openInfo/selectList.do?tcd=2"
 # request = requests.get(url)
 # soup = BeautifulSoup(request.text, 'html.parser')
 
@@ -23,13 +23,12 @@ rows = []
 
 # 페이지 수 설정 (예: 1부터 10까지 크롤링)
 for page in range(1, 11):  # 1부터 10 페이지까지
-    url = "https://www.nts.go.kr/nts/ad/openInfo/selectList.do"
+    url = "https://www.nts.go.kr/nts/ad/openInfo/selectList.do?tcd=2"
     
     # POST 요청을 위한 데이터 준비
     data = {
         'currPage': page,
         'maxSn': 20,
-        'tcd': 1,
         'pageIndex': 20,
         'search_order': 1,
         'minSn': (page - 1) * 20,  # 페이지에 따라 minSn 계산
